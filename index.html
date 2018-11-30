@@ -387,6 +387,9 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#update-log" class="toc-h1 toc-link" data-title="update-log">Update Log</a>
+          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='https://www.epiapi.com'>Visit us!</a></li>
@@ -3298,7 +3301,28 @@ It allows us to know where to expect the payment to be coming from.</p>
 <p>Bank cut-off time is 4PM CT.</p>
 
 <p>If we receive the payment instruction on the day before 4PM CT, the payment will be sent out that same day.-If we receive the payment instruction after 4PM CT, it will be credited to beneficiary next business day +1.</p>
+<h1 id='update-log'>Update Log</h1>
+  <p>Relaunched test environment service on new domain test.epiapi.com <br>
+    - Deprecated old non-utilized features
+  </p>
+  
 
+  <p>Australia VBAs: <br>
+    - Added functionality to deliver Australia VBAs
+  </p>
+
+  <p>Updated Wallet structure: <br>
+    - To allow for multiple country VBA opening under single Wallet using "countries" object（default：US）<br>
+    - Add additional validation
+  </p>
+
+  <p>Add callbacks for wallets: <br>
+    - Create callback when vbaData status changes occur to better monitor account opening progress
+  </p>
+
+  <p>Internal services: <br>
+    - Improved internal services for checking and automation of account opening
+  </p>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
