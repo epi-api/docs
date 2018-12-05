@@ -413,8 +413,6 @@
 
 <p>Check out the <a href="https://epi-api.github.io/slate-zh/">Chinese Version</a>.</p>
 
-<hr>
-
 <p><strong>How to get Started</strong></p>
 
 <p><strong>Step 1. Read the documentation</strong></p>
@@ -493,11 +491,11 @@
 </thead><tbody>
 <tr>
 <td>Test</td>
-<td><a href="https://api.testwyre.com"> https://api.testwyre.com </a></td>
+<td><a href="https://go-test.epiapi.com"> https://go-test.epiapi.com </a></td>
 </tr>
 <tr>
 <td>Production</td>
-<td><a href="https://api.sendwyre.com"> https://api.sendwyre.com </a></td>
+<td><a href="https://go.epiapi.com"> https://go.epiapi.com </a></td>
 </tr>
 </tbody></table>
 <h2 id='pagination'>Pagination</h2>
@@ -535,7 +533,7 @@
   <span class="nc">ACCOUNT_ID</span> <span class="o">=</span> <span class="s1">'YOUR_ACCOUNT_ID_HERE'</span>
   <span class="no">API_KEY</span> <span class="o">=</span> <span class="s1">'YOUR_API_KEY_HERE'</span>
   <span class="no">SEC_KEY</span> <span class="o">=</span> <span class="s1">'YOUR_SECRET_KEY_HERE'</span>
-  <span class="no">API_URL</span> <span class="o">=</span> <span class="s1">'https://api.testwyre.com'</span>
+  <span class="no">API_URL</span> <span class="o">=</span> <span class="s1">'https://go-test.epiapi.com'</span>
 
   <span class="k">def</span> <span class="nf">create_transfer</span> <span class="n">options</span>
     <span class="n">api_post</span> <span class="s1">'/transfers'</span><span class="p">,</span> <span class="n">options</span>
@@ -585,7 +583,7 @@
 <span class="k">class</span> <span class="nc">MassPay_API</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account_id</span><span class="p">,</span> <span class="n">api_version</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">account_id</span> <span class="o">=</span> <span class="n">account_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="s">'https://api.testwyre.com/{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_version</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="s">'https://go-test.epiapi.com/{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_version</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api_version</span> <span class="o">=</span> <span class="n">api_version</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="n">api_secret</span>
@@ -684,14 +682,14 @@
     <span class="n">String</span> <span class="n">apiKey</span> <span class="o">=</span> <span class="s">"YOUR_API_KEY_HERE"</span><span class="o">;</span>
     <span class="n">String</span> <span class="n">secretKey</span> <span class="o">=</span> <span class="s">"YOUR_SECRET_KEY_HERE"</span><span class="o">;</span>
 
-    <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.testwyre.com/account"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">"https://go-test.epiapi.com/account"</span><span class="o">;</span>
     <span class="n">String</span> <span class="n">method</span> <span class="o">=</span> <span class="s">"GET"</span><span class="o">;</span>
     <span class="n">String</span> <span class="n">data</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
 
     <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">executeWyreRequest</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="s">""</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">apiKey</span><span class="o">,</span> <span class="n">secretKey</span><span class="o">);</span>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
 
-    <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.testwyre.com/transfers"</span><span class="o">;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">"https://go-test.epiapi.com/transfers"</span><span class="o">;</span>
     <span class="n">method</span> <span class="o">=</span> <span class="s">"POST"</span><span class="o">;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="s">"{"</span> <span class="o">+</span>
         <span class="s">"  \"dest\": \"richard@epiaapi.com\","</span> <span class="o">+</span>
@@ -800,7 +798,7 @@
 <span class="o">}</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
     <span class="k">function</span> <span class="nf">make_authenticated_request</span><span class="p">(</span><span class="nv">$endpoint</span><span class="p">,</span> <span class="nv">$method</span><span class="p">,</span> <span class="nv">$body</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$url</span> <span class="o">=</span> <span class="s1">'https://api.testwyre.com'</span><span class="p">;</span>
+        <span class="nv">$url</span> <span class="o">=</span> <span class="s1">'https://go-test.epiapi.com'</span><span class="p">;</span>
         <span class="nv">$api_key</span> <span class="o">=</span> <span class="s2">"YOUR_API_KEY_HERE"</span><span class="p">;</span>
         <span class="nv">$secret_key</span> <span class="o">=</span> <span class="s2">"YOUR_SECRET_KEY_HERE"</span><span class="p">;</span>
 
@@ -894,7 +892,7 @@
     <span class="p">}</span>
     <span class="k">public</span> <span class="k">class</span> <span class="nc">WyreApi</span>
     <span class="p">{</span>
-        <span class="k">private</span> <span class="k">const</span> <span class="n">String</span> <span class="n">domain</span> <span class="p">=</span> <span class="s">"https://api.testwyre.com"</span><span class="p">;</span>
+        <span class="k">private</span> <span class="k">const</span> <span class="n">String</span> <span class="n">domain</span> <span class="p">=</span> <span class="s">"https://go-test.epiapi.com"</span><span class="p">;</span>
         <span class="k">private</span> <span class="k">const</span> <span class="n">String</span> <span class="n">apiKey</span> <span class="p">=</span> <span class="s">"YOUR_API_KEY_HERE"</span><span class="p">;</span>
         <span class="k">private</span> <span class="k">const</span> <span class="n">String</span> <span class="n">secKey</span> <span class="p">=</span> <span class="s">"YOUR_SECRET_KEY_HERE"</span><span class="p">;</span>
         <span class="k">public</span> <span class="n">HttpWebResponse</span> <span class="nf">Get</span><span class="p">(</span><span class="kt">string</span> <span class="n">path</span><span class="p">)</span>
@@ -985,9 +983,9 @@
 
 <p>Additionally, you should include a <code>GET</code> parameter named timestamp which is the current time in <strong>millisecond epoch format</strong>. We use this timestamp to help protect against replay attacks.</p>
 <h2 id='calculating-the-request-signature'>Calculating the request signature</h2>
-<p>If you are sending a <code>GET</code> request you would sign the following (example):  <em>https://api.testwyre.com/v2/rates?timestamp=1426252182534</em></p>
+<p>If you are sending a <code>GET</code> request you would sign the following (example):  <em>https://go-test.epiapi.com/v2/rates?timestamp=1426252182534</em></p>
 
-<p>If you are making a <code>POST</code> request you would sign the following (example): <em>https://api.testwyre.com/v2/transfers?timestamp=1426252182534</em></p>
+<p>If you are making a <code>POST</code> request you would sign the following (example): <em>https://go-test.epiapi.com/v2/transfers?timestamp=1426252182534</em></p>
 
 <p>Note for the <code>POST</code> request, you must append the request body to the string URL. Remember to send the request body exactly as you sign it, whitespace and all. The server calculates the signature based on exactly what&#39;s in the request body.</p>
 
@@ -1135,7 +1133,7 @@
 <h3 id='step-1-create-a-wallet-with-kyc-data'>Step 1. Create a Wallet with KYC Data</h3>
 <p>Wyre uses the concept of <code>wallets</code> to represent individual merchant accounts under your <code>account</code>. Upon creation, each of these wallets are assigned various fund receiving capabilities. You must set <code>type=VBA</code> in order to obtain a Virtual Bank Account (with a unique bank account and routing number).</p>
 
-<p><code>POST</code> https://api.testwyre.com/v2/wallets</p>
+<p><code>POST</code> https://go-test.epiapi.com/v2/wallets</p>
 
 <pre class="center-column">
 {
@@ -1350,7 +1348,7 @@
 <td>null</td>
 </tr>
 </tbody></table>
-<pre class="highlight plaintext"><code>curl -v -XPOST 'https://api.testwyre.com/v2/wallets' \
+<pre class="highlight plaintext"><code>curl -v -XPOST 'https://go-test.epiapi.com/v2/wallets' \
   -H "Content-Type: application/json" \
   -H "X-Api-Key: {api-key}" \
   -H "X-Api-Signature: {signature}" \
@@ -1411,7 +1409,7 @@
 
 <p>3.Take note of the <code>walletId</code> that gets generated in the response as this will be used later to manage the VBA.</p>
 <h3 id='step-2-upload-kyc-documents'>Step 2. Upload KYC documents</h3>
-<p><code>POST</code> https://api.testwyre.com/v2/documents</p>
+<p><code>POST</code> https://go-test.epiapi.com/v2/documents</p>
 
 <p>VBA Wallets require the below documentation in order to be issued with a Virtual Bank <code>accountNumber</code>. When you upload a document using this endpoint you will receive a <code>documentId</code> which you will need for Step 3.</p>
 
@@ -1430,7 +1428,7 @@
 </tr>
 </tbody></table>
 
-<p>E.g. <code>POST</code> https://api.testwyre.com/v2/documents?ownerSrn=wallet:WA-123123123&amp;filename=coiDoc.pdf</p>
+<p>E.g. <code>POST</code> https://go-test.epiapi.com/v2/documents?ownerSrn=wallet:WA-123123123&amp;filename=coiDoc.pdf</p>
 
 <p>In the body of the request simply include the raw bytes of file to be uploaded.</p>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">computeSignature2</span><span class="o">(</span><span class="n">String</span> <span class="n">secretKey</span><span class="o">,</span><span class="n">String</span> <span class="n">url</span><span class="o">,</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">reqData</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">UnsupportedEncodingException</span> <span class="o">{</span>
@@ -1541,7 +1539,7 @@ Once the file is uploaded the user will receive a &quot;document&quot; object as
 </pre>
 
 <p><br>
-Query the wallet using <code>GET</code> https://api.testwyre.com/v2/wallet/[walletID]. Limit your queries to once per hour and once the data is added turn off the queries. In the future we will add a Callback for this event.</p>
+Query the wallet using <code>GET</code> https://go-test.epiapi.com/v2/wallet/[walletID]. Limit your queries to once per hour and once the data is added turn off the queries. In the future we will add a Callback for this event.</p>
 
 <p>Once received you can now pass this information to your user to update their settlement information with their merchant platform.</p>
 <h3 id='step-5-receiving-funds-and-callbacks'>Step 5. Receiving Funds and Callbacks</h3>
@@ -1551,11 +1549,11 @@ Query the wallet using <code>GET</code> https://api.testwyre.com/v2/wallet/[wall
 
 <p>If you wish to validate the callback you can use the <code>id</code> to <code>GET</code> the necessary information. For transfers within our system the id will belong to a transfer (e.g. TF-123123123) and you can query:</p>
 
-<p><em>https://api.testwyre.com/v2/transfer/[id]</em></p>
+<p><em>https://go-test.epiapi.com/v2/transfer/[id]</em></p>
 
 <p>For the initial funding transation from outside our system (such as Amazon) the id will belong to a transaction (e.g. TR-123123123) and you can query:</p>
 
-<p><em>https://api.testwyre.com/v2/transaction/[id]</em></p>
+<p><em>https://go-test.epiapi.com/v2/transaction/[id]</em></p>
 
 <p><br>
 <strong>Result Format</strong></p>
@@ -1590,7 +1588,7 @@ Query the wallet using <code>GET</code> https://api.testwyre.com/v2/wallet/[wall
 
 <p><br></p>
 <h3 id='step-6-transfer-usd-from-wallet-to-account'>Step 6. Transfer USD from wallet to Account</h3>
-<p><code>POST</code> https://api.testwyre.com/v2/transfers</p>
+<p><code>POST</code> https://go-test.epiapi.com/v2/transfers</p>
 
 <pre class="center-column">
 {
@@ -1627,7 +1625,7 @@ Query the wallet using <code>GET</code> https://api.testwyre.com/v2/wallet/[wall
 
 <p><strong>Definition</strong></p>
 
-<p><code>GET</code> https://api.testwyre.com/v2/account</p>
+<p><code>GET</code> https://go-test.epiapi.com/v2/account</p>
 
 <p>When checking your balance you should refer to the <code>availableBalance</code> object to see how much of a given currency you have available to transfer.</p>
 
@@ -1751,7 +1749,7 @@ Query the wallet using <code>GET</code> https://api.testwyre.com/v2/wallet/[wall
 <p>Wallets are used by epiapi to represent individual Merchant accounts. For our Virtual Banking solution all wallets should be created with <code>type=VBA</code>. The below shows a typical wallet-account flow.</p>
 
 <p><img src="images/Flow-En.png" alt="Flow-En.png" /></p>
-<h2 id='create-wallet'>Create Wallet</h2><pre class="highlight plaintext"><code>curl -v -XPOST 'https://api.testwyre.com/v2/wallets' \
+<h2 id='create-wallet'>Create Wallet</h2><pre class="highlight plaintext"><code>curl -v -XPOST 'https://go-test.epiapi.com/v2/wallets' \
   -H "Content-Type: application/json" \
   -H "X-Api-Key: {api-key}" \
   -H "X-Api-Signature: {signature}" \
@@ -1776,7 +1774,7 @@ Query the wallet using <code>GET</code> https://api.testwyre.com/v2/wallet/[wall
     <span class="n">String</span> <span class="n">apiKey</span> <span class="o">=</span> <span class="s">"fll36l3t35udalcqlh4ng6bm4qpbgher"</span><span class="o">;</span>
     <span class="n">String</span> <span class="n">secretKey</span> <span class="o">=</span> <span class="s">"tr3epinbk3maist0n3ijk18bm6dikrq6"</span><span class="o">;</span>
 
-    <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.testwyre.com/v2/wallets"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">"https://go-test.epiapi.com/v2/wallets"</span><span class="o">;</span>
     <span class="n">String</span> <span class="n">method</span> <span class="o">=</span> <span class="s">"POST"</span><span class="o">;</span>
     <span class="n">String</span> <span class="n">data</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
 
@@ -1911,7 +1909,7 @@ Query the wallet using <code>GET</code> https://api.testwyre.com/v2/wallet/[wall
 <span class="k">class</span> <span class="nc">MassPay_API</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account_id</span><span class="p">,</span> <span class="n">api_version</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">account_id</span> <span class="o">=</span> <span class="n">account_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="s">'https://api.testwyre.com/{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_version</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="s">'https://go-test.epiapi.com/{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_version</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api_version</span> <span class="o">=</span> <span class="n">api_version</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="n">api_secret</span>
@@ -1989,7 +1987,7 @@ Query the wallet using <code>GET</code> https://api.testwyre.com/v2/wallet/[wall
 '''</span><span class="n">php</span>
 <span class="o">&lt;</span><span class="err">?</span><span class="n">php</span>
     <span class="n">function</span> <span class="n">make_authenticated_request</span><span class="p">(</span><span class="err">$</span><span class="n">endpoint</span><span class="p">,</span> <span class="err">$</span><span class="n">method</span><span class="p">,</span> <span class="err">$</span><span class="n">body</span><span class="p">)</span> <span class="p">{</span>
-        <span class="err">$</span><span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.testwyre.com'</span><span class="p">;</span>
+        <span class="err">$</span><span class="n">url</span> <span class="o">=</span> <span class="s">'https://go-test.epiapi.com'</span><span class="p">;</span>
         <span class="err">$</span><span class="n">api_key</span> <span class="o">=</span> <span class="s">"bh405n7stsuo5ut30iftrsl71b4iqjnv"</span><span class="p">;</span>
         <span class="err">$</span><span class="n">secret_key</span> <span class="o">=</span> <span class="s">"a19cvrchgja82urvn47kirrlrrb7stgg"</span><span class="p">;</span>
 
@@ -2068,7 +2066,7 @@ Query the wallet using <code>GET</code> https://api.testwyre.com/v2/wallet/[wall
 </code></pre>
 <p><strong>Definition</strong></p>
 
-<p><code>POST</code> https://api.testwyre.com/v2/wallets</p>
+<p><code>POST</code> https://go-test.epiapi.com/v2/wallets</p>
 
 <p><strong>Parameters</strong></p>
 
@@ -2133,7 +2131,7 @@ Query the wallet using <code>GET</code> https://api.testwyre.com/v2/wallet/[wall
 
 <p><br></p>
 <h2 id='create-mulitple-wallets'>Create Mulitple Wallets</h2><pre class="highlight plaintext"><code>
-curl -XPOST 'https://api.testwyre.com/v2/wallets/batch?pretty' \
+curl -XPOST 'https://go-test.epiapi.com/v2/wallets/batch?pretty' \
 -H 'Content-Type:application/json' \
 -d '{
   "wallets":[
@@ -2147,7 +2145,7 @@ curl -XPOST 'https://api.testwyre.com/v2/wallets/batch?pretty' \
 
 <p><strong>Definition</strong></p>
 
-<p><code>POST</code> https://api.testwyre.com/v2/wallets/batch</p>
+<p><code>POST</code> https://go-test.epiapi.com/v2/wallets/batch</p>
 
 <p><strong>Parameters</strong></p>
 
@@ -2233,12 +2231,12 @@ curl -XPOST 'https://api.testwyre.com/v2/wallets/batch?pretty' \
 </pre>
 <h2 id='lookup-wallet'>Lookup Wallet</h2>
 <p><strong>Lookup by user ID:</strong></p>
-<pre class="highlight plaintext"><code>curl -v -XGET 'https://api.testwyre.com/v2/wallet/{wallet-id}' \
+<pre class="highlight plaintext"><code>curl -v -XGET 'https://go-test.epiapi.com/v2/wallet/{wallet-id}' \
   -H "X-Api-Key: {api-key}" \
   -H "X-Api-Signature: {signature}" \
 </code></pre>
 <p><strong>Lookup by user name:</strong></p>
-<pre class="highlight plaintext"><code>curl -v -XGET 'https://api.testwyre.com/v2/wallet' \
+<pre class="highlight plaintext"><code>curl -v -XGET 'https://go-test.epiapi.com/v2/wallet' \
   -H "X-Api-Key: {api-key}" \
   -H "X-Api-Signature: {signature}" \
   -d name={your-identifier}
@@ -2248,7 +2246,7 @@ curl -XPOST 'https://api.testwyre.com/v2/wallets/batch?pretty' \
 <p><br>
 <strong>Definition</strong></p>
 
-<p><code>GET</code> https://api.testwyre.com/v2/wallet/{walletId}</p>
+<p><code>GET</code> https://go-test.epiapi.com/v2/wallet/{walletId}</p>
 
 <p><strong>Parameters</strong></p>
 
@@ -2271,7 +2269,7 @@ curl -XPOST 'https://api.testwyre.com/v2/wallets/batch?pretty' \
 <p><br>
 <strong>Definition</strong></p>
 
-<p><code>GET</code> https://api.testwyre.com/v2/wallet/</p>
+<p><code>GET</code> https://go-test.epiapi.com/v2/wallet/</p>
 
 <p><strong>Parameters</strong></p>
 
@@ -2320,7 +2318,7 @@ curl -XPOST 'https://api.testwyre.com/v2/wallets/batch?pretty' \
 </pre>
 
 <p><br></p>
-<h2 id='edit-wallet'>Edit Wallet</h2><pre class="highlight plaintext"><code>curl -v -XPOST 'https://api.testwyre.com/v2/wallet/{wallet-id}/update' \
+<h2 id='edit-wallet'>Edit Wallet</h2><pre class="highlight plaintext"><code>curl -v -XPOST 'https://go-test.epiapi.com/v2/wallet/{wallet-id}/update' \
   -H "Content-Type: application/json" \
   -H "X-Api-Key: {api-key}" \
   -H "X-Api-Signature: {signature}" \
@@ -2337,7 +2335,7 @@ curl -XPOST 'https://api.testwyre.com/v2/wallets/batch?pretty' \
 <span class="k">class</span> <span class="nc">MassPay_API</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account_id</span><span class="p">,</span> <span class="n">api_version</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">account_id</span> <span class="o">=</span> <span class="n">account_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="s">'https://api.testwyre.com/{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_version</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">=</span> <span class="s">'https://go-test.epiapi.com/{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_version</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api_version</span> <span class="o">=</span> <span class="n">api_version</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api_secret</span> <span class="o">=</span> <span class="n">api_secret</span>
@@ -2414,7 +2412,7 @@ curl -XPOST 'https://api.testwyre.com/v2/wallets/batch?pretty' \
 
     <span class="n">String</span> <span class="n">walletId</span> <span class="o">=</span> <span class="s">"{wallet-id}"</span><span class="o">;</span>
 
-    <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.testwyre.com/v2/wallet/"</span><span class="o">+</span> <span class="n">walletId</span> <span class="o">+</span><span class="s">"/update"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">"https://go-test.epiapi.com/v2/wallet/"</span><span class="o">+</span> <span class="n">walletId</span> <span class="o">+</span><span class="s">"/update"</span><span class="o">;</span>
     <span class="n">String</span> <span class="n">method</span> <span class="o">=</span> <span class="s">"POST"</span><span class="o">;</span>
     <span class="n">String</span> <span class="n">data</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
 
@@ -2521,9 +2519,9 @@ curl -XPOST 'https://api.testwyre.com/v2/wallets/batch?pretty' \
 
 <p><strong>Definition</strong></p>
 
-<p><code>POST</code> https://api.testwyre.com/v2/wallet/{walletId}</p>
+<p><code>POST</code> https://go-test.epiapi.com/v2/wallet/{walletId}</p>
 <h2 id='delete-wallet'>Delete Wallet</h2><pre class="highlight plaintext"><code>
-curl -v -XDELETE 'https://api.testwyre.com/v2/wallet/{wallet-id}' \
+curl -v -XDELETE 'https://go-test.epiapi.com/v2/wallet/{wallet-id}' \
   -H "X-Api-Key: {api-key}" \
   -H "X-Api-Signature: {signature}"
 </code></pre>
@@ -2531,7 +2529,7 @@ curl -v -XDELETE 'https://api.testwyre.com/v2/wallet/{wallet-id}' \
 
 <p><strong>Definition</strong></p>
 
-<p><code>DELETE</code> https://api.testwyre.com/v2/wallet/{walletId}</p>
+<p><code>DELETE</code> https://go-test.epiapi.com/v2/wallet/{walletId}</p>
 
 <p><strong>Parameters</strong></p>
 
@@ -2555,7 +2553,7 @@ curl -v -XDELETE 'https://api.testwyre.com/v2/wallet/{wallet-id}' \
 
 <p><strong>Definition</strong></p>
 
-<p><code>GET</code> https://api.testwyre.com/v2/wallets</p>
+<p><code>GET</code> https://go-test.epiapi.com/v2/wallets</p>
 
 <p><strong>Parameters</strong></p>
 
@@ -2610,7 +2608,7 @@ curl -v -XDELETE 'https://api.testwyre.com/v2/wallet/{wallet-id}' \
 <h2 id='create-transfer'>Create Transfer</h2>
 <p><strong>Definition</strong></p>
 
-<p><code>POST</code> https://api.testwyre.com/v2/transfer/</p>
+<p><code>POST</code> https://go-test.epiapi.com/v2/transfer/</p>
 
 <p>This endpoint creates a new money transfer.</p>
 
@@ -2782,7 +2780,7 @@ curl -v -XDELETE 'https://api.testwyre.com/v2/wallet/{wallet-id}' \
 
 <p><strong>Definition</strong></p>
 
-<p><code>POST</code> https://api.testwyre.com/v2/transfer/transferId:/confirm</p>
+<p><code>POST</code> https://go-test.epiapi.com/v2/transfer/transferId:/confirm</p>
 
 <p><strong>Parameters</strong></p>
 
@@ -2857,7 +2855,7 @@ curl -v -XDELETE 'https://api.testwyre.com/v2/wallet/{wallet-id}' \
 
 <p><strong>Definition</strong></p>
 
-<p><code>GET</code> https://api.testwyre.com/v2/transfer?customId=</p>
+<p><code>GET</code> https://go-test.epiapi.com/v2/transfer?customId=</p>
 
 <p><strong>Parameters</strong></p>
 
@@ -2931,7 +2929,7 @@ curl -v -XDELETE 'https://api.testwyre.com/v2/wallet/{wallet-id}' \
 <h2 id='transfer-status'>Transfer Status</h2>
 <p><strong>Definition</strong></p>
 
-<p><code>GET</code> https://api.testwyre.com/v2/transfer/:transferId</p>
+<p><code>GET</code> https://go-test.epiapi.com/v2/transfer/:transferId</p>
 
 <p><strong>Parameters</strong></p>
 
@@ -3135,7 +3133,7 @@ It allows us to know where to expect the payment to be coming from.</p>
 
 <p><strong>Definition</strong></p>
 
-<p><code>GET</code> https://api.testwyre.com/v2/paymentMethod/:paymentMethodId</p>
+<p><code>GET</code> https://go-test.epiapi.com/v2/paymentMethod/:paymentMethodId</p>
 
 <p><br>
 <strong>Result Format</strong></p>
@@ -3169,9 +3167,10 @@ It allows us to know where to expect the payment to be coming from.</p>
         "CNY",
         "BRL",
         "EUR",
+        "AUD"
     ],
     "depositableCurrencies": [
-        "USD"
+        "AUD"
     ],
     "chargeFeeSchedule": null,
     "depositFeeSchedule": null,
@@ -3188,7 +3187,7 @@ It allows us to know where to expect the payment to be coming from.</p>
 
 <p><strong>Definition</strong></p>
 
-<p><code>POST</code> https://api.testwyre.com/v2/transfers</p>
+<p><code>POST</code> https://go-test.epiapi.com/v2/transfers</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"dest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"paymentMethodType"</span><span class="p">:</span><span class="s2">"INTERNATIONAL_TRANSFER"</span><span class="p">,</span><span class="w">
@@ -3299,8 +3298,6 @@ It allows us to know where to expect the payment to be coming from.</p>
 <td>Currency to be debited from your account</td>
 </tr>
 </tbody></table>
-
-<hr>
 
 <p><strong>Delivery Times</strong></p>
 
