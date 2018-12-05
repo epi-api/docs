@@ -322,7 +322,6 @@
             <a href="#wallets" class="toc-h1 toc-link" data-title="wallets">Wallets</a>
               <ul class="toc-list-h2">
                   <li>
-
                     <a href="#create-wallet" class="toc-h2 toc-link" data-title="create-wallet">Create Wallet</a>
                   </li>
                   <li>
@@ -394,6 +393,9 @@
               </ul>
           </li>
           <li>
+            <a href="#delivery-time" class="toc-h1 toc-link" data-title="delivery-time">Delivery Times</a>
+          </li>
+          <li>
             <a href="#update-log" class="toc-h1 toc-link" data-title="update-log">Update Log</a>
           </li>
       </div>
@@ -445,8 +447,10 @@
 
 <ul>
 <li>United States</li>
+<li>Australia</li>
 <li>European Union (coming soon)</li>
-<li>Australia (coming soon)</li>
+<li>United Kingdom (coming soon)</li>
+<li>Japan (coming soon)</li>
 </ul>
 
 <p>We are adding more countries soon. We will send an email as and when we release new functionality:)</p>
@@ -455,9 +459,10 @@
 
 <ul>
 <li>USD</li>
+<li>AUD</li>
 <li>EUR (coming soon)</li>
 <li>GBP (coming soon)</li>
-<li>AUD (coming soon)</li>
+<li>JPY (coming soon)</li>
 </ul>
 <h2 id='transport-method'>Transport Method</h2>
 <p>We provide a REST API that will always return a JSON Object as the response.</p>
@@ -2112,19 +2117,26 @@ Query the wallet using <code>GET</code> https://go-test.epiapi.com/v2/wallet/[wa
   "name" : "{your-unique-identifier}",
   "id" : "WA-AYBNA3lBiWAM4l3",
   "depositAddresses" : {
-    "BTC" : "2ShL7kzSNNxedit6hC2fjSQhVcAucTeS1m7"
   },
   "totalBalances" : {
-    "BTC" : 0
   },
   "availableBalances" : {
-    "BTC" : 0
   },
   "srn" : "wallet:AYBNA3lBiWAM4l3",
   "balances" : {
-    "BTC" : 0
   },
   "callbackUrl" : "https://your.website.io/callback",
+  "verificationData": {
+
+  },
+  "vbaVerificationData": {
+      "{your-vba-data-verification}"
+  },
+  "vbaData": {
+    "{your-vba-data-information}"
+  },
+  "status": "APPROVED"
+  "type": "VBA"
   "notes" : "Notes about the user"
 }
 </pre>
@@ -2169,65 +2181,84 @@ curl -XPOST 'https://go-test.epiapi.com/v2/wallets/batch?pretty' \
 <strong>Result Format</strong></p>
 
 <pre class="center-column">
-{
-  "name" : "walletOne",
-  "id" : "AxVA57edP0H33x3",
-  "notes" : null,
-  "srn" : "wallet:AxVA57edP0H33x3",
-  "callbackUrl" : null,
-  "verificationData" : null,
-  "depositAddresses" : {
-    "BTC" : "2ShKKFb9gEP5uvRXtMbs7ykJAMPgoSSnSWB"
+  {
+    "name" : "walletOne",
+    "id" : "{walletOneId}",
+    "depositAddresses" : {
+    },
+    "totalBalances" : {
+    },
+    "availableBalances" : {
+    },
+    "srn" : "wallet:AYBNA3lBiWAM4l3",
+    "balances" : {
+    },
+    "callbackUrl" : "https://your.website.io/callback",
+    "verificationData": {
+  
+    },
+    "vbaVerificationData": {
+        "{your-vba-data-verification}"
+    },
+    "vbaData": {
+      "{your-vba-data-information}"
+    },
+    "status": "APPROVED"
+    "type": "VBA"
+    "notes" : "Notes about the user"
   },
-  "totalBalances" : {
-    "BTC" : 0
+  {
+    "name" : "walletTwo",
+    "id" : "{walletTwoId}",
+    "depositAddresses" : {
+    },
+    "totalBalances" : {
+    },
+    "availableBalances" : {
+    },
+    "srn" : "wallet:AYBNA3lBiWAM4l3",
+    "balances" : {
+    },
+    "callbackUrl" : "https://your.website.io/callback",
+    "verificationData": {
+  
+    },
+    "vbaVerificationData": {
+        "{your-vba-data-verification}"
+    },
+    "vbaData": {
+      "{your-vba-data-information}"
+    },
+    "status": "APPROVED"
+    "type": "VBA"
+    "notes" : "Notes about the user"
   },
-  "availableBalances" : {
-    "BTC" : 0
-  },
-  "balances" : {
-    "BTC" : 0
+  {
+    "name" : "walletThree",
+    "id" : "{walletThreeId}",
+    "depositAddresses" : {
+    },
+    "totalBalances" : {
+    },
+    "availableBalances" : {
+    },
+    "srn" : "wallet:AYBNA3lBiWAM4l3",
+    "balances" : {
+    },
+    "callbackUrl" : "https://your.website.io/callback",
+    "verificationData": {
+  
+    },
+    "vbaVerificationData": {
+        "{your-vba-data-verification}"
+    },
+    "vbaData": {
+      "{your-vba-data-information}"
+    },
+    "status": "APPROVED"
+    "type": "VBA"
+    "notes" : "Notes about the user"
   }
-}, {
-  "name" : "walletTwo",
-  "id" : "AtEhoXje3C1V5zq",
-  "notes" : null,
-  "srn" : "wallet:AtEhoXje3C1V5zq",
-  "callbackUrl" : null,
-  "verificationData" : null,
-  "depositAddresses" : {
-    "BTC" : "2ShKndBJNHvzABhBzLxvfzzD2vt64C36dPc"
-  },
-  "totalBalances" : {
-    "BTC" : 0
-  },
-  "availableBalances" : {
-    "BTC" : 0
-  },
-  "balances" : {
-    "BTC" : 0
-  }
-}, {
-  "name" : "walletThree",
-  "id" : "U07tSKMvofeMmx0",
-  "notes" : null,
-  "srn" : "wallet:U07tSKMvofeMmx0",
-  "callbackUrl" : null,
-  "verificationData" : null,
-  "depositAddresses" : {
-    "BTC" : "2ShJsBPUb4HrNtgaNZk3YQSi2ynpZ5YY7sT"
-  },
-  "totalBalances" : {
-    "BTC" : 0
-
-  },
-  "availableBalances" : {
-    "BTC" : 0
-  },
-  "balances" : {
-    "BTC" : 0
-  }
-}
 </pre>
 <h2 id='lookup-wallet'>Lookup Wallet</h2>
 <p><strong>Lookup by user ID:</strong></p>
@@ -2294,26 +2325,31 @@ curl -XPOST 'https://go-test.epiapi.com/v2/wallets/batch?pretty' \
 
 <pre class="center-column">
 {
-   "owner": "account:[account-ID]",
-   "callbackUrl": null,
-   "depositAddresses": {
-       "BTC": "1FNAkNVt3gXdS3PZ1tDvetbcafKPsJPQTG"
-   },
-   "totalBalances": {
-       "USD": 4.96
-   },
-   "availableBalances": {
-       "USD": 4.96
-   },
-   "verificationData": null,
-   "balances": {
-       "USD": 4.96
-   },
-   "srn": "wallet:[Wallet-ID]",
-   "createdAt": 1497861843000,
-   "notes": "test1",
-   "name": "richard",
-   "id": "[Wallet-ID]"
+  "owner": "account:[account-ID]",
+  "name" : "walletThree",
+  "id" : "{walletThreeId}",
+  "depositAddresses" : {
+  },
+  "totalBalances" : {
+  },
+  "availableBalances" : {
+  },
+  "srn" : "wallet:AYBNA3lBiWAM4l3",
+  "balances" : {
+  },
+  "callbackUrl" : "https://your.website.io/callback",
+  "verificationData": {
+
+  },
+  "vbaVerificationData": {
+      "{your-vba-data-verification}"
+  },
+  "vbaData": {
+    "{your-vba-data-information}"
+  },
+  "status": "APPROVED"
+  "type": "VBA"
+  "notes" : "Notes about the user"
 }
 </pre>
 
@@ -2584,21 +2620,62 @@ curl -v -XDELETE 'https://go-test.epiapi.com/v2/wallet/{wallet-id}' \
 
 <pre class="center-column">
 {
-  "data": {
-      "owner": "account:XAV3CRAC94P",
-      "balances": {},
-      "srn": "wallet:WA-XM4L3JMUQGF",
-      "createdAt": 1508433396000,
-      "callbackUrl": "https://shake.webscript.io/callback",
-      "depositAddresses": {
-        "BTC": "1Q9TqsVwuZf6bYqtxxjqdataXx81x3Q1h7"
+  "data": [
+    {
+      "owner": "account:[account-ID]",
+      "name" : "walletOne",
+      "id" : "{walletOneId}",
+      "depositAddresses" : {
       },
-      "totalBalances": {},
-      "availableBalances": {},
-      "notes": "nope",
-      "name": "Person A",
-      "id": "WA-XM4L3JMUQGF"
-     }
+      "totalBalances" : {
+      },
+      "availableBalances" : {
+      },
+      "srn" : "wallet:AYBNA3lBiWAM4l3",
+      "balances" : {
+      },
+      "callbackUrl" : "https://your.website.io/callback",
+      "verificationData": {
+    
+      },
+      "vbaVerificationData": {
+          "{your-vba-data-verification}"
+      },
+      "vbaData": {
+        "{your-vba-data-information}"
+      },
+      "status": "APPROVED"
+      "type": "VBA"
+      "notes" : "Notes about the user"
+    },
+    {
+      "owner": "account:[account-ID]",
+      "name" : "walletTwo",
+      "id" : "{walletTwoId}",
+      "depositAddresses" : {
+      },
+      "totalBalances" : {
+      },
+      "availableBalances" : {
+      },
+      "srn" : "wallet:AYBNA3lBiWAM4l3",
+      "balances" : {
+      },
+      "callbackUrl" : "https://your.website.io/callback",
+      "verificationData": {
+    
+      },
+      "vbaVerificationData": {
+          "{your-vba-data-verification}"
+      },
+      "vbaData": {
+        "{your-vba-data-information}"
+      },
+      "status": "APPROVED"
+      "type": "VBA"
+      "notes" : "Notes about the user"
+    }
+  ]
   }
 </pre>
 <h1 id='transfers'>Transfers</h1><h2 id='introduction'>Introduction</h2>
@@ -3299,7 +3376,7 @@ It allows us to know where to expect the payment to be coming from.</p>
 </tr>
 </tbody></table>
 
-<p><strong>Delivery Times</strong></p>
+<h1 id="delivery-time">Delivery Times</h1>
 
 <p>Bank cut-off time is 4PM CT.</p>
 
