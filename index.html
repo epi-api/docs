@@ -423,7 +423,7 @@
 
 <p><strong>Step 2. Register a test account</strong></p>
 
-<p>Contact our support team at support@epiapi.com (mailto: support@epiapi.com) or fill in this form (link: https://epiapi.typeform.com/to/oOqFwN) to reach out, we will send you an email with test account immediately. No need to upload any KYC documents for the test envornment (though this will be required on production) - jump straight to Step 3. </p>
+          <p>Contact our support team at <a href="support@epiapi.com">support@epiapi.com</a> (<a href="mailto:support@epiapi.com">mailto:support@epiapi.com</a>) or fill in this form (link: <a href="https://epiapi.typeform.com/to/oOqFwN">https://epiapi.typeform.com</a>) to reach out, we will send you an email with test account immediately. No need to upload any KYC documents for the test envornment (though this will be required on production) - jump straight to Step 3. </p>
 
 <p><strong>Step 3. Verify your test account</strong></p>
 
@@ -978,7 +978,7 @@
 </thead><tbody>
 <tr>
 <td>X-Api-Key</td>
-<td>Your API key. Your key can be found <a href="https://epiapi.zendesk.com/hc/en-us/articles/360009109612-API-Key-%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%8D%97">here</a></td>
+<td>Your API key. Your key can be found in the registration email we sent.</a></td>
 </tr>
 <tr>
 <td>X-Api-Signature</td>
@@ -2694,9 +2694,9 @@ curl -v -XDELETE 'https://go-test.epiapi.com/v2/wallet/{wallet-id}' \
    "source":"account:AC-123123123",
    "sourceCurrency":"USD",
    "sourceAmount":"5",
-   "dest":"email:sam@testwyre.com",
-   "destCurrency":"CNY",
-   "message": ""
+   "dest": "email:richard@epiapi.com",
+   "callbackUrl": "https://your.website.io/callback",
+   "destCurrency":"USD"
 }
 </pre>
 
@@ -2805,51 +2805,61 @@ curl -v -XDELETE 'https://go-test.epiapi.com/v2/wallet/{wallet-id}' \
 
 <pre class="center-column">
 {
-    "id": "TF-VWGF3WW6JU4",
-    "status": "PENDING",
+    "id": "TF-BAGYBLDX6W9",
+    "status": "UNCONFIRMED",
     "failureReason": null,
     "language": "en",
-    "createdAt": 1525196883000,
-    "updatedAt": 1525196883000,
-    "completedAt": 1525196884000,
+    "createdAt": 1544599490834,
+    "updatedAt": null,
+    "completedAt": null,
+    "depositInitiatedAt": null,
     "cancelledAt": null,
-    "expiresAt": 1525456083000,
-    "owner": "account:AC-PJZEFT7JP6J",
-    "source": "service:Fiat Credits",
-    "dest": "wallet:WA-AFFGZJJ7X82",
+    "expiresAt": 1544600390834,
+    "submitter": "account:AC-XXLN4A9HA4V",
+    "owner": "account:AC-XXLN4A9HA4V",
+    "source": "account:AC-XXLN4A9HA4V",
+    "dest": "email:duc@epiapi.com",
     "sourceCurrency": "USD",
-    "sourceAmount": 10,
+    "sourceAmount": 1,
     "destCurrency": "USD",
-    "destAmount": 10,
+    "destAmount": 1,
+    "atMinFee": false,
     "exchangeRate": null,
+    "desc": null,
     "message": null,
     "totalFees": 0,
+    "equivalencies": {},
+    "feeEquivalencies": {},
     "fees": {
         "USD": 0
     },
-    "customId": null,
+    "authorizingIp": "127.0.0.1",
+    "paymentUrl": null,
+    "sourceTxId": null,
+    "destTxId": null,
+    "customId": "customId123",
+    "buy": false,
+    "instantBuy": false,
+    "sell": false,
+    "exchange": false,
+    "send": false,
+    "deposit": false,
+    "withdrawal": false,
+    "closed": false,
     "reversingSubStatus": null,
     "reversalReason": null,
+    "retrievalUrl": null,
+    "quotedMargin": null,
+    "originatorOfacStatus": null,
+    "beneficiaryOfacStatus": null,
+    "originatorUnSanctionsStatus": null,
+    "beneficiaryUnSanctionsStatus": null,
+    "destNickname": null,
     "pendingSubStatus": null,
-    "destName": "amandawallet",
-    "sourceName": "Wyre",
-    "blockchainTx": null,
-    "statusHistories": [
-        {
-            "id": "HNUBAMZ4YQQ",
-            "createdAt": 1525196884000,
-            "statusDetail": "Initiating Transfer",
-            "state": "INITIATED",
-            "failedState": null
-        },
-        {
-            "id": "V8L2MJNPF6D",
-            "createdAt": 1525196884000,
-            "statusDetail": "Transfer Pending",
-            "state": "PENDING",
-            "failedState": null
-        }
-    ]
+    "estimatedArrival": 1544599491085,
+    "statusHistories": [],
+    "documents": [],
+    "pusherChannel": "765bfc333ac6f0bc5a884f8ff2fd4da5"
 }
 </pre>
 <h2 id='confirm-transfer'>Confirm Transfer</h2>
@@ -2857,7 +2867,7 @@ curl -v -XDELETE 'https://go-test.epiapi.com/v2/wallet/{wallet-id}' \
 
 <p><strong>Definition</strong></p>
 
-<p><code>POST</code> https://go-test.epiapi.com/v2/transfer/transferId:/confirm</p>
+<p><code>POST</code> https://go-test.epiapi.com/v2/transfer/:transferId/confirm</p>
 
 <p><strong>Parameters</strong></p>
 
@@ -2880,51 +2890,72 @@ curl -v -XDELETE 'https://go-test.epiapi.com/v2/wallet/{wallet-id}' \
 
 <pre class="center-column">
 {
-    "id": "TF-VWGF3WW6JU4",
+    "id": "TF-BAGYBLDX6W9",
     "status": "COMPLETED",
     "failureReason": null,
     "language": "en",
-    "createdAt": 1525196883000,
-    "updatedAt": 1525196883000,
-    "completedAt": 1525196884000,
+    "createdAt": 1544599491000,
+    "updatedAt": null,
+    "completedAt": 1544599879271,
+    "depositInitiatedAt": null,
     "cancelledAt": null,
-    "expiresAt": 1525456083000,
-    "owner": "account:AC-PJZEFT7JP6J",
-    "source": "service:Fiat Credits",
-    "dest": "wallet:WA-AFFGZJJ7X82",
+    "expiresAt": 1544600391000,
+    "submitter": "account:AC-XXLN4A9HA4V",
+    "owner": "account:AC-XXLN4A9HA4V",
+    "source": "account:AC-XXLN4A9HA4V",
+    "dest": "email:duc@epiapi.com",
     "sourceCurrency": "USD",
-    "sourceAmount": 10,
+    "sourceAmount": 1,
     "destCurrency": "USD",
-    "destAmount": 10,
+    "destAmount": 1,
+    "atMinFee": false,
     "exchangeRate": null,
+    "desc": "Completed: Transfer of $1.00 to email:duc@epiapi.com",
     "message": null,
     "totalFees": 0,
+    "equivalencies": {},
+    "feeEquivalencies": {},
     "fees": {
         "USD": 0
     },
-    "customId": null,
+    "authorizingIp": "127.0.0.1",
+    "paymentUrl": null,
+    "sourceTxId": "TF-BAGYBLDX6W9-W",
+    "destTxId": null,
+    "customId": "customId123",
+    "buy": false,
+    "instantBuy": false,
+    "sell": false,
+    "exchange": false,
+    "send": false,
+    "deposit": false,
+    "withdrawal": false,
+    "closed": false,
     "reversingSubStatus": null,
     "reversalReason": null,
+    "retrievalUrl": null,
+    "quotedMargin": null,
+    "originatorOfacStatus": null,
+    "beneficiaryOfacStatus": null,
+    "originatorUnSanctionsStatus": null,
+    "beneficiaryUnSanctionsStatus": null,
+    "destNickname": null,
     "pendingSubStatus": null,
-    "destName": "amandawallet",
-    "sourceName": "Wyre",
-    "blockchainTx": null,
+    "estimatedArrival": 1544599879271,
     "statusHistories": [
         {
-            "id": "HNUBAMZ4YQQ",
-            "createdAt": 1525196884000,
+            "id": "NPBVV6DUC3V",
+            "transferId": "TF-BAGYBLDX6W9",
+            "createdAt": 1544599879000,
+            "type": "TRANSFER",
+            "statusOrder": 0,
             "statusDetail": "Initiating Transfer",
             "state": "INITIATED",
             "failedState": null
-        },
-        {
-            "id": "V8L2MJNPF6D",
-            "createdAt": 1525196884000,
-            "statusDetail": "Transfer Completed",
-            "state": "COMPLETED",
-            "failedState": null
         }
-    ]
+    ],
+    "documents": [],
+    "pusherChannel": "765bfc333ac6f0bc5a884f8ff2fd4da5"
 }
 </pre>
 <h2 id='lookup-transfer'>Lookup Transfer</h2>
@@ -2956,51 +2987,82 @@ curl -v -XDELETE 'https://go-test.epiapi.com/v2/wallet/{wallet-id}' \
 
 <pre class="center-column">
 {
-    "id": "TF-VWGF3WW6JU4",
+    "id": "TF-BAGYBLDX6W9",
     "status": "COMPLETED",
     "failureReason": null,
     "language": "en",
-    "createdAt": 1525196883000,
-    "updatedAt": 1525196883000,
-    "completedAt": 1525196884000,
+    "createdAt": 1544599491000,
+    "updatedAt": null,
+    "completedAt": 1544599879000,
+    "depositInitiatedAt": null,
     "cancelledAt": null,
-    "expiresAt": 1525456083000,
-    "owner": "account:AC-PJZEFT7JP6J",
-    "source": "service:Fiat Credits",
-    "dest": "wallet:WA-AFFGZJJ7X82",
+    "expiresAt": 1544600391000,
+    "submitter": "account:AC-XXLN4A9HA4V",
+    "owner": "account:AC-XXLN4A9HA4V",
+    "source": "account:AC-XXLN4A9HA4V",
+    "dest": "email:duc@epiapi.com",
     "sourceCurrency": "USD",
-    "sourceAmount": 10,
+    "sourceAmount": 1,
     "destCurrency": "USD",
-    "destAmount": 10,
+    "destAmount": 1,
+    "atMinFee": false,
     "exchangeRate": null,
+    "desc": null,
     "message": null,
     "totalFees": 0,
+    "equivalencies": {},
+    "feeEquivalencies": {},
     "fees": {
         "USD": 0
     },
-    "customId": null,
+    "authorizingIp": "127.0.0.1",
+    "paymentUrl": null,
+    "sourceTxId": "TF-BAGYBLDX6W9-W",
+    "destTxId": null,
+    "customId": "customId123",
+    "buy": false,
+    "instantBuy": false,
+    "sell": false,
+    "exchange": false,
+    "send": false,
+    "deposit": false,
+    "withdrawal": false,
+    "closed": false,
     "reversingSubStatus": null,
     "reversalReason": null,
+    "retrievalUrl": null,
+    "quotedMargin": null,
+    "originatorOfacStatus": null,
+    "beneficiaryOfacStatus": null,
+    "originatorUnSanctionsStatus": null,
+    "beneficiaryUnSanctionsStatus": null,
+    "destNickname": null,
     "pendingSubStatus": null,
-    "destName": "amandawallet",
-    "sourceName": "Wyre",
-    "blockchainTx": null,
+    "estimatedArrival": 1544599879000,
     "statusHistories": [
         {
-            "id": "HNUBAMZ4YQQ",
-            "createdAt": 1525196884000,
+            "id": "NPBVV6DUC3V",
+            "transferId": "TF-BAGYBLDX6W9",
+            "createdAt": 1544599879000,
+            "type": "TRANSFER",
+            "statusOrder": 0,
             "statusDetail": "Initiating Transfer",
             "state": "INITIATED",
             "failedState": null
         },
         {
-            "id": "V8L2MJNPF6D",
-            "createdAt": 1525196884000,
+            "id": "ZYPQCZB7PGT",
+            "transferId": "TF-BAGYBLDX6W9",
+            "createdAt": 1544599879000,
+            "type": "TRANSFER",
+            "statusOrder": 5100,
             "statusDetail": "Transfer Completed",
             "state": "COMPLETED",
             "failedState": null
         }
-    ]
+    ],
+    "documents": [],
+    "pusherChannel": "765bfc333ac6f0bc5a884f8ff2fd4da5"
 }
 </pre>
 <h2 id='transfer-status'>Transfer Status</h2>
@@ -3029,51 +3091,82 @@ curl -v -XDELETE 'https://go-test.epiapi.com/v2/wallet/{wallet-id}' \
 
 <pre class="center-column">
 {
-    "id": "TF-VWGF3WW6JU4",
+    "id": "TF-BAGYBLDX6W9",
     "status": "COMPLETED",
     "failureReason": null,
     "language": "en",
-    "createdAt": 1525196883000,
-    "updatedAt": 1525196883000,
-    "completedAt": 1525196884000,
+    "createdAt": 1544599491000,
+    "updatedAt": null,
+    "completedAt": 1544599879000,
+    "depositInitiatedAt": null,
     "cancelledAt": null,
-    "expiresAt": 1525456083000,
-    "owner": "account:AC-PJZEFT7JP6J",
-    "source": "service:Fiat Credits",
-    "dest": "wallet:WA-AFFGZJJ7X82",
+    "expiresAt": 1544600391000,
+    "submitter": "account:AC-XXLN4A9HA4V",
+    "owner": "account:AC-XXLN4A9HA4V",
+    "source": "account:AC-XXLN4A9HA4V",
+    "dest": "email:duc@epiapi.com",
     "sourceCurrency": "USD",
-    "sourceAmount": 10,
+    "sourceAmount": 1,
     "destCurrency": "USD",
-    "destAmount": 10,
+    "destAmount": 1,
+    "atMinFee": false,
     "exchangeRate": null,
+    "desc": null,
     "message": null,
     "totalFees": 0,
+    "equivalencies": {},
+    "feeEquivalencies": {},
     "fees": {
         "USD": 0
     },
-    "customId": null,
+    "authorizingIp": "127.0.0.1",
+    "paymentUrl": null,
+    "sourceTxId": "TF-BAGYBLDX6W9-W",
+    "destTxId": null,
+    "customId": "customId123",
+    "buy": false,
+    "instantBuy": false,
+    "sell": false,
+    "exchange": false,
+    "send": false,
+    "deposit": false,
+    "withdrawal": false,
+    "closed": false,
     "reversingSubStatus": null,
     "reversalReason": null,
+    "retrievalUrl": null,
+    "quotedMargin": null,
+    "originatorOfacStatus": null,
+    "beneficiaryOfacStatus": null,
+    "originatorUnSanctionsStatus": null,
+    "beneficiaryUnSanctionsStatus": null,
+    "destNickname": null,
     "pendingSubStatus": null,
-    "destName": "amandawallet",
-    "sourceName": "Wyre",
-    "blockchainTx": null,
+    "estimatedArrival": 1544599879000,
     "statusHistories": [
         {
-            "id": "HNUBAMZ4YQQ",
-            "createdAt": 1525196884000,
+            "id": "NPBVV6DUC3V",
+            "transferId": "TF-BAGYBLDX6W9",
+            "createdAt": 1544599879000,
+            "type": "TRANSFER",
+            "statusOrder": 0,
             "statusDetail": "Initiating Transfer",
             "state": "INITIATED",
             "failedState": null
         },
         {
-            "id": "V8L2MJNPF6D",
-            "createdAt": 1525196884000,
+            "id": "ZYPQCZB7PGT",
+            "transferId": "TF-BAGYBLDX6W9",
+            "createdAt": 1544599879000,
+            "type": "TRANSFER",
+            "statusOrder": 5100,
             "statusDetail": "Transfer Completed",
             "state": "COMPLETED",
             "failedState": null
         }
-    ]
+    ],
+    "documents": [],
+    "pusherChannel": "765bfc333ac6f0bc5a884f8ff2fd4da5"
 }
 </pre>
 
@@ -3104,51 +3197,82 @@ curl -v -XDELETE 'https://go-test.epiapi.com/v2/wallet/{wallet-id}' \
 
 <pre class="center-column">
 {
-    "id": "TF-VWGF3WW6JU4",
+    "id": "TF-BAGYBLDX6W9",
     "status": "COMPLETED",
     "failureReason": null,
     "language": "en",
-    "createdAt": 1525196883000,
-    "updatedAt": 1525196883000,
-    "completedAt": 1525196884000,
+    "createdAt": 1544599491000,
+    "updatedAt": null,
+    "completedAt": 1544599879000,
+    "depositInitiatedAt": null,
     "cancelledAt": null,
-    "expiresAt": 1525456083000,
-    "owner": "account:AC-PJZEFT7JP6J",
-    "source": "service:Fiat Credits",
-    "dest": "wallet:WA-AFFGZJJ7X82",
+    "expiresAt": 1544600391000,
+    "submitter": "account:AC-XXLN4A9HA4V",
+    "owner": "account:AC-XXLN4A9HA4V",
+    "source": "account:AC-XXLN4A9HA4V",
+    "dest": "email:duc@epiapi.com",
     "sourceCurrency": "USD",
-    "sourceAmount": 10,
+    "sourceAmount": 1,
     "destCurrency": "USD",
-    "destAmount": 10,
+    "destAmount": 1,
+    "atMinFee": false,
     "exchangeRate": null,
+    "desc": null,
     "message": null,
     "totalFees": 0,
+    "equivalencies": {},
+    "feeEquivalencies": {},
     "fees": {
         "USD": 0
     },
-    "customId": null,
+    "authorizingIp": "127.0.0.1",
+    "paymentUrl": null,
+    "sourceTxId": "TF-BAGYBLDX6W9-W",
+    "destTxId": null,
+    "customId": "customId123",
+    "buy": false,
+    "instantBuy": false,
+    "sell": false,
+    "exchange": false,
+    "send": false,
+    "deposit": false,
+    "withdrawal": false,
+    "closed": false,
     "reversingSubStatus": null,
     "reversalReason": null,
+    "retrievalUrl": null,
+    "quotedMargin": null,
+    "originatorOfacStatus": null,
+    "beneficiaryOfacStatus": null,
+    "originatorUnSanctionsStatus": null,
+    "beneficiaryUnSanctionsStatus": null,
+    "destNickname": null,
     "pendingSubStatus": null,
-    "destName": "amandawallet",
-    "sourceName": "Wyre",
-    "blockchainTx": null,
+    "estimatedArrival": 1544599879000,
     "statusHistories": [
         {
-            "id": "HNUBAMZ4YQQ",
-            "createdAt": 1525196884000,
+            "id": "NPBVV6DUC3V",
+            "transferId": "TF-BAGYBLDX6W9",
+            "createdAt": 1544599879000,
+            "type": "TRANSFER",
+            "statusOrder": 0,
             "statusDetail": "Initiating Transfer",
             "state": "INITIATED",
             "failedState": null
         },
         {
-            "id": "V8L2MJNPF6D",
-            "createdAt": 1525196884000,
+            "id": "ZYPQCZB7PGT",
+            "transferId": "TF-BAGYBLDX6W9",
+            "createdAt": 1544599879000,
+            "type": "TRANSFER",
+            "statusOrder": 5100,
             "statusDetail": "Transfer Completed",
             "state": "COMPLETED",
             "failedState": null
         }
-    ]
+    ],
+    "documents": [],
+    "pusherChannel": "765bfc333ac6f0bc5a884f8ff2fd4da5"
 }
 </pre>
 
