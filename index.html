@@ -1791,7 +1791,7 @@ Query the wallet using <code>GET</code> https://go-test.epiapi.com/v2/wallet/[wa
         <span class="s">"  \"name\":\"{your-unique-identifier}\","</span> <span class="o">+</span>
         <span class="s">"  \"callbackUrl\":\"https://your.website.io/callback\","</span> <span class="o">+</span>
         <span class="s">"  \"notes\":\"Notes about the user\","</span> <span class="o">+</span>
-        <span class="s">"  \"verificationData\": {"</span> <span class="o">+</span>
+        <span class="s">"  \"vbaVerficationData\": {"</span> <span class="o">+</span>
         <span class="s">"      \"firstName\":\"{users-first-name}\","</span> <span class="o">+</span>
         <span class="s">"      \"middleName\":\"{users-middle-name}\","</span> <span class="o">+</span>
         <span class="s">"      \"lastName\":\"{users-last-name}\","</span> <span class="o">+</span>
@@ -1944,7 +1944,7 @@ Query the wallet using <code>GET</code> https://go-test.epiapi.com/v2/wallet/[wa
         <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span> <span class="o">+</span> <span class="s">'/wallets'</span>
         <span class="n">method</span> <span class="o">=</span> <span class="s">'POST'</span>
         <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span><span class="n">name</span><span class="p">,</span>
-                <span class="s">'verificationData'</span><span class="p">:</span><span class="n">verificationData</span><span class="p">,</span>
+                <span class="s">'vbaVerficationData'</span><span class="p">:</span><span class="n">verificationData</span><span class="p">,</span>
                 <span class="s">'type'</span><span class="p">:</span><span class="s">'ENTERPRISE'</span><span class="p">}</span>
         <span class="k">if</span> <span class="n">callbackUrl</span><span class="p">:</span>
             <span class="n">body</span><span class="p">[</span><span class="s">"callbackUrl"</span><span class="p">]</span> <span class="o">=</span> <span class="n">callbackUrl</span>
@@ -2046,7 +2046,7 @@ Query the wallet using <code>GET</code> https://go-test.epiapi.com/v2/wallet/[wa
       <span class="s">"name"</span><span class="o">=&gt;</span><span class="s">"{your-unique-identifier}"</span><span class="p">,</span>
       <span class="s">"callbackUrl"</span><span class="o">=&gt;</span><span class="s">"https://your.website.io/callback"</span><span class="p">,</span>
       <span class="s">"notes"</span><span class="o">=&gt;</span> <span class="s">"Notes about the user"</span><span class="p">,</span>
-      <span class="s">"verificationData"</span><span class="o">=&gt;</span> <span class="n">array</span><span class="p">(</span>
+      <span class="s">"vbaVerficationData"</span><span class="o">=&gt;</span> <span class="n">array</span><span class="p">(</span>
           <span class="s">"firstName"</span><span class="o">=&gt;</span> <span class="s">"{users-first-name}"</span><span class="p">,</span>
           <span class="s">"middleName"</span><span class="o">=&gt;</span> <span class="s">"{users-middle-name}"</span><span class="p">,</span>
           <span class="s">"lastName"</span><span class="o">=&gt;</span> <span class="s">"{users-last-name}"</span><span class="p">,</span>
@@ -2406,7 +2406,7 @@ curl -XPOST 'https://go-test.epiapi.com/v2/wallets/batch?pretty' \
         <span class="k">if</span> <span class="n">notes</span><span class="p">:</span>
             <span class="n">body</span><span class="p">[</span><span class="s">'notes'</span><span class="p">]</span> <span class="o">=</span> <span class="n">notes</span>
         <span class="k">if</span> <span class="n">verificationData</span><span class="p">:</span>
-            <span class="n">body</span><span class="p">[</span><span class="s">'verificationData'</span><span class="p">]</span> <span class="o">=</span> <span class="n">verificationData</span>
+            <span class="n">body</span><span class="p">[</span><span class="s">'vbaVerficationData'</span><span class="p">]</span> <span class="o">=</span> <span class="n">verificationData</span>
         <span class="k">return</span> <span class="n">url</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">body</span>
 
 <span class="c">#USAGE Example</span>
