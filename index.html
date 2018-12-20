@@ -1761,6 +1761,9 @@ Query the wallet using <code>GET</code> https://go-test.epiapi.com/v2/wallet/[wa
   -d '{"type":"ENTERPRISE","name":"{your-unique-identifier}",
   "callbackUrl":"https://your.website.io/callback",
   "notes":"Notes about the sub account"}'
+
+
+
 </code></pre><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">javax.crypto.Mac</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.crypto.spec.SecretKeySpec</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
@@ -1783,7 +1786,7 @@ Query the wallet using <code>GET</code> https://go-test.epiapi.com/v2/wallet/[wa
     <span class="n">String</span> <span class="n">method</span> <span class="o">=</span> <span class="s">"POST"</span><span class="o">;</span>
     <span class="n">String</span> <span class="n">data</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
 
-    <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">excuteWyereRequest</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="s">""</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">apiKey</span><span class="o">,</span> <span class="n">secretKey</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">excuteWyreRequest</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="s">""</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">apiKey</span><span class="o">,</span> <span class="n">secretKey</span><span class="o">);</span>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
 
     <span class="n">data</span> <span class="o">=</span> <span class="s">"{"</span> <span class="o">+</span>
@@ -1840,14 +1843,15 @@ Query the wallet using <code>GET</code> https://go-test.epiapi.com/v2/wallet/[wa
       <span class="n">connection</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"X-Api-Signature"</span><span class="o">,</span><span class="n">computeSignature</span><span class="o">(</span><span class="n">secretKey</span><span class="o">,</span><span class="n">targetURL</span><span class="o">,</span><span class="n">requestBody</span><span class="o">));</span>
 
       <span class="c1">//Send request</span>
+
+
       <span class="k">if</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"POST"</span><span class="o">))</span> <span class="o">{</span>
         <span class="n">connection</span><span class="o">.</span><span class="na">setDoOutput</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
         <span class="n">connection</span><span class="o">.</span><span class="na">setRequestMethod</span><span class="o">(</span><span class="n">method</span><span class="o">);</span>
 
         <span class="n">DataOutputStream</span> <span class="n">wr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DataOutputStream</span><span class="o">(</span>
-            <span class="n">connection</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
-
-        <span class="n">wr</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="n">requestBody</span><span class="o">);</span>
+        <span class="n">connection</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+        <span class="n">wr</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">requestBody</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span></span><span class="s">"UTF-8"</span><span class="o">));</span>
         <span class="n">wr</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
         <span class="n">wr</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
       <span class="o">}</span>
