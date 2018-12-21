@@ -1146,6 +1146,7 @@
   "type":"VBA",
   "callbackUrl":"https://your.website.io/callback",
   "vbaVerificationData":{
+    "countries":["US", "AU"],
     "entityType":"CORP",
     "entityScope":"Shopping/Retail",
     "email":"test+merchant@epiapi.com",
@@ -1162,9 +1163,13 @@
       "street2":"克林大厦107室"},
     "idNumber":"432524199902287897",
     "idDoc":null,
-    "merchantIds":[{
-    "merchantId":"AAAAAAAAAAA",
-    "merchantType":"Amazon"}],
+    "merchantIds":[
+        {
+            "mechantIdType":"Amazon",
+            "merchantIdCountry":"US",
+            "merchantId":"003"
+        }
+    ],
     "expectedMonthlySales":40000,
     "shopName":"MyBrand",
     "website":"https://merchant.website.com",
