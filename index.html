@@ -1800,31 +1800,46 @@ Query the wallet using <code>GET</code> https://go-test.epiapi.com/v2/wallet/[wa
     <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">excuteWyreRequest</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="s">""</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">apiKey</span><span class="o">,</span> <span class="n">secretKey</span><span class="o">);</span>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
 
+
     <span class="n">data</span> <span class="o">=</span> <span class="s">"{"</span> <span class="o">+</span>
-        <span class="s">"  \"type\":\"ENTERPRISE\","</span> <span class="o">+</span>
-        <span class="s">"  \"name\":\"{your-unique-identifier}\","</span> <span class="o">+</span>
-        <span class="s">"  \"callbackUrl\":\"https://your.website.io/callback\","</span> <span class="o">+</span>
-        <span class="s">"  \"notes\":\"Notes about the user\","</span> <span class="o">+</span>
-        <span class="s">"  \"vbaVerficationData\": {"</span> <span class="o">+</span>
-        <span class="s">"      \"firstName\":\"{users-first-name}\","</span> <span class="o">+</span>
-        <span class="s">"      \"middleName\":\"{users-middle-name}\","</span> <span class="o">+</span>
-        <span class="s">"      \"lastName\":\"{users-last-name}\","</span> <span class="o">+</span>
-        <span class="s">"      \"ssn\":\"0000\","</span> <span class="o">+</span>
-        <span class="s">"      \"passport\":\"123456\","</span> <span class="o">+</span>
-        <span class="s">"      \"birthDay\":\"1\","</span> <span class="o">+</span>
-        <span class="s">"      \"birthMonth\":\"1\","</span> <span class="o">+</span>
-        <span class="s">"      \"birthYear\":\"1970\","</span> <span class="o">+</span>
-        <span class="s">"      \"phoneNumber\":\"+15555555555\","</span> <span class="o">+</span>
-        <span class="s">"      \"address\": {"</span> <span class="o">+</span>
-        <span class="s">"          \"street1\":\"1 Market Street\","</span> <span class="o">+</span>
-        <span class="s">"          \"street2\":\"Suit 420\","</span> <span class="o">+</span>
-        <span class="s">"          \"city\":\"San Francisco\","</span> <span class="o">+</span>
-        <span class="s">"          \"state\":\"CA\","</span> <span class="o">+</span>
-        <span class="s">"          \"postalCode\":\"94105\","</span> <span class="o">+</span>
-        <span class="s">"          \"country\":\"US\""</span> <span class="o">+</span>
-        <span class="s">"      }"</span> <span class="o">+</span>
-        <span class="s">"  }"</span> <span class="o">+</span>
-        <span class="s">"}"</span><span class="o">;</span>
+      <span class="s">"  \"type\":\"VBA\","</span> <span class="o">+</span>
+      <span class="s">"  \"name\":\"{your-unique-identifier}\","</span> <span class="o">+</span>
+      <span class="s">"  \"callbackUrl\":\"https://your.website.io/callback\","</span> <span class="o">+</span>
+      <span class="s">"  \"vbaVerificationData\": {"</span> <span class="o">+</span>
+      <span class="s">"     \"countries\":[\"US\", \"AU\"],"</span> <span class="o">+</span>
+      <span class="s">"     \"ip\":\"192.168.1.1\","</span> <span class="o">+</span>
+      <span class="s">"     \"merchantIds\":["</span> <span class="o">+</span>
+      <span class="s">"         {"</span> <span class="o">+</span>
+      <span class="s">"             \"merchantId\":\"AMZ123123\","</span> <span class="o">+</span>
+      <span class="s">"             \"merchantIdCountry\":\"US\","</span> <span class="o">+</span>
+      <span class="s">"             \"merchantIdType\":\"Amazon\","</span> <span class="o">+</span>
+      <span class="s">"         },"</span> <span class="o">+</span>
+      <span class="s">"         {"</span> <span class="o">+</span>
+      <span class="s">"             \"merchantId\":\"AMZ123124\","</span> <span class="o">+</span>
+      <span class="s">"             \"merchantIdCountry\":\"AU\","</span> <span class="o">+</span>
+      <span class="s">"             \"merchantIdType\":\"Amazon\","</span> <span class="o">+</span>
+      <span class="s">"         }"</span> <span class="o">+</span>
+      <span class="s">"     ],"</span> <span class="o">+</span>
+      <span class="s">"     \"email\":\"{your email}\","</span> <span class="o">+</span>
+      <span class="s">"     \"phoneNumber\":\"+15555555555\","</span> <span class="o">+</span>
+      <span class="s">"     \"shopName\":\"Test Shop 1\","</span> <span class="o">+</span>
+      <span class="s">"     \"nameEn\":\"{your name}}\","</span> <span class="o">+</span>
+      <span class="s">"     \"entityType\":\"M\","</span> <span class="o">+</span>
+      <span class="s">"     \"dateOfBirth\":648345600000,"</span> <span class="o">+</span>
+      <span class="s">"     \"idNumber\":\"15262734\","</span> <span class="o">+</span>
+      <span class="s">"     \"idDoc\":\"http://sino-us.com/UploadFiles/2013/5/30/201305301045590301.jpg\","</span> <span class="o">+</span>
+      <span class="s">"     \"entityScope\":\"Shopping/Retail\","</span> <span class="o">+</span>
+      <span class="s">"     \"entityScope\":\"Shopping/Retail\","</span> <span class="o">+</span>
+      <span class="s">"      \"address\": {"</span> <span class="o">+</span>
+      <span class="s">"          \"street1\":\"1 Market Street\","</span> <span class="o">+</span>
+      <span class="s">"          \"street2\":\"Suit 420\","</span> <span class="o">+</span>
+      <span class="s">"          \"city\":\"San Francisco\","</span> <span class="o">+</span>
+      <span class="s">"          \"state\":\"CA\","</span> <span class="o">+</span>
+      <span class="s">"          \"postalCode\":\"94105\","</span> <span class="o">+</span>
+      <span class="s">"          \"country\":\"US\""</span> <span class="o">+</span>
+      <span class="s">"      }"</span> <span class="o">+</span>
+      <span class="s">"  }"</span> <span class="o">+</span>
+      <span class="s">"}"</span><span class="o">;</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">excuteWyreRequest</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">data</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">apiKey</span><span class="o">,</span> <span class="n">secretKey</span><span class="o">);</span>
 
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
